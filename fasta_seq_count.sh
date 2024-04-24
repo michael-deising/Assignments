@@ -3,8 +3,9 @@
 
 echo "This script can count the number of sequences in a fasta file".
 
-greetings="Greetings Michael!"
-echo "$greetings"
+hello="greetings"
+name="Michael!"
+echo "$hello" "$name"
 
 mkdir '/home/michael/Desktop/Bioinformatics/learing_bash'
 mv '/home/michael/Desktop/transcriptome1.fasta' /home/michael/Desktop/Bioinformatics/learning_bash
