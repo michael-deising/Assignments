@@ -1,0 +1,33 @@
+# 1.) 
+sed '/[Zz][Oo][Oo]/d' /home/michael/Desktop/pandas >> /home/michael/Desktop/panda_zoos.txt
+
+# 2.)
+awk '{print $1, $4, $2}' /home/michael/Desktop/pandas | sort -k 3 >> /home/michael/Desktop/sorted_pandas.txt
+
+# or without using sort
+
+awk '{print $1, $4, $2}' /home/michael/Desktop/pandas | grep ' male$' >> /home/michael/Desktop/sorted_pandas.txt; awk '{print $1, $4, $2}' /home/michael/Desktop/pandas | grep ' female$' >> /home/michael/Desktop/sorted_pandas.txt
+
+# 3.) 
+cut -f 5 /home/michael/Desktop/pandas| grep -oE '\b[[:alnum:]_]+\b' | sort -u > /home/michael/Desktop/panda_zoos_A2Z.txt
+
+# 4.)
+cp /home/michael/Desktop/pandas /home/michael/Desktop/panda_m_f.txt; sed -i 's/female/F/g' /home/michael/Desktop/panda_m_f.txt ; sed -i 's/male/M/g' /home/michael/Desktop/panda_m_f.txt
+
+# 5.) 
+grep "female" /home/michael/Desktop/pandas | grep -c "October"
+
+# 6.) 
+grep -n "" /home/michael/Desktop/pandas > /home/michael/Desktop/panda_names.txt
+
+# 7.) 
+sed -n -e '1p;6p;17p' /home/michael/Desktop/pandas > /home/micahel/Desktop/lines_1_6_17.txt
+
+# 8.) 
+grep -i 'x' /home/micahel/Desktop/pandas > /home/michael/Desktop/x_lines.txt
+
+# 9.) 
+awk '{print $5}' /home/michael/Desktop/pandas | sort | uniq -c | grep -w '1' | awk '{print $2}' > /home/michael/Desktop/unique_places.txt
+
+# 10.) 
+awk '$4 <= 10 {print $1, $4}' /home/michael/Desktop/pandas | sort -k2,2n > /home/michael/Desktop/young_pandas.txt
